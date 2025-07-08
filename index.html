@@ -3,117 +3,283 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lights On Staffing</title>
-  <link rel="stylesheet" href="styles/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Lights on Staffing</title>
+  <style>
+    :root {
+      --green: #169b62;
+      --white: #ffffff;
+      --orange: #ff883e;
+      --light-black: #333;
+      --light-gray: #f7f7f7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: var(--light-black);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      font-weight: 500;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--light-black);
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      background-color: var(--orange);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--green);
+    }
+
+    .hero {
+      background: url('assets/LightsOnStaffing_Home.jpg') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .form-container input {
+      padding: 0.5rem;
+      margin: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .quote-section {
+      background: var(--white);
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .quote-section img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .quote-section blockquote {
+      font-style: italic;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .quote-section blockquote::before {
+      content: '“';
+      font-size: 3rem;
+      color: var(--orange);
+      position: absolute;
+      left: 0;
+      top: -10px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .tab-buttons button {
+      padding: 0.5rem 1rem;
+      background: var(--green);
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .tab-buttons button:hover {
+      background: var(--orange);
+    }
+
+    .tab-content {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
+    .testimonials blockquote {
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .success-stories img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      margin: 1rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-content">
-      <img src="assets/logo.png" alt="Lights On Staffing Logo" class="logo" />
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#success">Success Stories</a></li>
-          <li><a href="#proposal">Proposal</a></li>
-          <li><a href="#contact" class="button">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <img src="assets/logo.png" alt="Lights on Staffing Logo">
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#success">Success Stories</a></li>
+        <li><a class="btn" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" style="background-image: url('assets/LightsOnStaffing_Home.jpg');">
-    <div class="container hero-content">
-      <h1>Find Your Dream Job Today</h1>
-      <p>Connecting talent with opportunity in a competitive job market.</p>
-      <form class="cta-form">
-        <input type="text" name="fullname" placeholder="Full Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="tel" name="phone" placeholder="Phone" required />
-        <button type="submit">Get Started</button>
-      </form>
+  <section class="hero">
+    <h1>Find Your Dream Job Today</h1>
+    <p>Connecting talent with opportunity in a competitive job market.</p>
+    <div class="form-container">
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email">
+      <input type="tel" placeholder="Phone">
+      <button class="btn">Get Started</button>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="about-section" id="about">
-    <div class="container split-section">
-      <div class="left">
-        <h2>Who We Are</h2>
-        <p>Lights on Staffing is led by Steven Glynn, hailing from Ireland originally, I came to the US with a Dream & a Greencard! Career #1 was Environmental Engineering and after 4 years of that I took a leap of faith and asked my recruiter if I could work for their company. I was in Corporate recruiting for 16 years before venturing out on my own in 2019. Still going strong. The secret sauce? There is a secret sauce - let's chat and allow me to share.</p>
-        <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams" class="button">Let's Chat</a>
-      </div>
-      <div class="right testimonial-box">
-        <div class="quote">
-          <span class="quote-symbol">“</span>
-          <p><em>After 16 years in the recruitment world - post career #1 as an Environmental Engineer - I launched Lights on Staffing in 2019, a recruiting firm built for the AEC industry, by someone who’s been in it.</em></p>
-        </div>
-        <div class="profile">
-          <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn" class="profile-img" />
-          <div>
-            <strong>Steven Glynn</strong><br />
-            Founder & Recruiting Consultant
-          </div>
-        </div>
-      </div>
+  <section class="quote-section" id="about">
+    <div>
+      <h2>Who we are</h2>
+      <p>Lights on Staffing is led by Steven Glynn, hailing from Ireland originally, I came to the US with a Dream & a Greencard! Career #1 was Environmental Engineering and after 4 years of that I took a leap of faith and asked my recruiter if I could work for their company. I was in Corporate recruiting for 16 years before venturing out on my own in 2019. Still going strong. The secret sauce? There is a secret sauce - lets chat and allow me to share.</p>
+      <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams" class="btn">Let's Chat</a>
+    </div>
+    <div>
+      <blockquote>After 16 years in the recruitment world - post career #1 as an Environmental Engineer - I launched Lights on Staffing in 2019, a recruiting firm built for the AEC industry, by someone who’s been in it.</blockquote>
+      <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn">
+      <p><strong>Steven Glynn</strong><br>Founder & Recruiting Consultant</p>
     </div>
   </section>
 
-  <!-- Services Tabs -->
-  <section class="services-section" id="services">
-    <div class="container">
-      <div class="tabs">
-        <ul class="tab-buttons">
-          <li class="active" data-tab="tab1">Our Talent Landscape</li>
-          <li data-tab="tab2">Retained Service</li>
-          <li data-tab="tab3">Contract Recruiting</li>
-        </ul>
-        <div class="tab-content active" id="tab1">
-          <p>Architecture Skill Sets: Architects, Project Managers, Drafters/Designers, Interior Designers, BIM, and more.<br />
-          Construction Skill Sets: Project Managers, Project Engineers, Construction Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more.<br />
-          Environmental Skill Sets: CEQA/NEPA, Environmental Planners, Environmental Biologists, Archaeologists, Environmental Technicians, and more.<br />
-          Accounting & Finance Skill Sets: Accountants, Financial Analysts, Controllers, Chief Financial Officer (CFO), and more.</p>
-          <a href="#" class="button">Request Proposal</a>
-        </div>
-        <div class="tab-content" id="tab2">
-          <p>It’s a partnership. We work hand-in-hand with our clients from the outset of the recruitment process, beginning with an in-depth analysis of your organization's unique needs, company culture, and business goals. Need 8 to 40 hours of support - try this. Customized and the cheapest option around. Not ready to commit to a full-time recruiter? Try this.</p>
-          <a href="#" class="button">Request Proposal</a>
-        </div>
-        <div class="tab-content" id="tab3">
-          <p>If you prefer a contingency approach. Have a one-off requirement or want to "try before you buy", this is a good way to consider. It's the old school approach - you only pay when we find the candidate.</p>
-          <a href="#" class="button">Request Proposal</a>
-        </div>
-      </div>
+  <section id="services" class="tabs" style="background: var(--light-gray);">
+    <div class="tab-buttons">
+      <button onclick="showTab('talent')">Our Talent Landscape</button>
+      <button onclick="showTab('retained')">Retained Service</button>
+      <button onclick="showTab('contract')">Contract Recruiting</button>
+    </div>
+    <div class="tab-content" id="tab-content">
+      <!-- default content -->
+      <p>Architecture Skill Sets: Architects, Project Managers, Drafters/Designers, Interior Designers, BIM, and more <br>
+      Construction Skill Sets: Project Managers, Project Engineers, Construction Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more<br>
+      Environmental Skill Sets: CEQA/NEPA, Environmental Planners, Environmental Biologists, Archaeologists, Environmental Technicians, and more.<br>
+      Accounting & Finance Skill Sets: Accountants, Financial Analysts, Controllers, Chief Financial Officer (CFO), and more.</p>
+      <a class="btn" href="#">Request Proposal</a>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="testimonials-section">
-    <div class="container">
+  <section class="testimonials">
+    <div class="center">
       <h2>Testimonials</h2>
-      <div class="testimonials">
-        <blockquote>“Steven has a knack for understanding our company's personnel needs and firm culture, which are critical to finding the right people to join us...”</blockquote>
-        <blockquote>“Steven is an excellent recruiting professional... very proactive communicator, and responsive to our leadership's weekly changes in priority needs and hiring...”</blockquote>
-        <blockquote>“Steven helped me get the initial SDR team off the ground in Workvivo... I would work with him again in a heartbeat.”</blockquote>
-      </div>
     </div>
+    <blockquote>“Steven has a knack for understanding our company's personnel needs and firm culture, which are critical to finding the right people to join us...”</blockquote>
+    <blockquote>“Steven is an excellent recruiting professional and has a terrific 'can do/will do' client centered approach. He has found and delivered several highly skilled professionals...”</blockquote>
+    <blockquote>“Steven helped me get the initial SDR team off the ground in Workvivo. He is hands down the most proactive recruiter that I have worked with...”</blockquote>
   </section>
 
-  <!-- Success Stories -->
-  <section class="success-section" id="success">
-    <div class="container">
+  <section class="success-stories" id="success">
+    <div class="center">
       <h2>Success Stories</h2>
-      <div class="thumbnails">
-        <div class="thumb-box">[Thumbnail 1]</div>
-        <div class="thumb-box">[Thumbnail 2]</div>
-        <div class="thumb-box">[Thumbnail 3]</div>
-      </div>
+      <p>(Thumbnails and titles will be defined later)</p>
+    </div>
+    <!-- Placeholder Thumbnails -->
+    <div class="center">
+      <img src="assets/sample1.jpg" alt="Story 1">
+      <img src="assets/sample2.jpg" alt="Story 2">
+      <img src="assets/sample3.jpg" alt="Story 3">
     </div>
   </section>
 
-  <script src="scripts/main.js"></script>
+  <script>
+    function showTab(tab) {
+      const content = {
+        talent: `Architecture Skill Sets: Architects, Project Managers, Drafters/Designers, Interior Designers, BIM, and more <br>
+                Construction Skill Sets: Project Managers, Project Engineers, Construction Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more<br>
+                Environmental Skill Sets: CEQA/NEPA, Environmental Planners, Environmental Biologists, Archaeologists, Environmental Technicians, and more.<br>
+                Accounting & Finance Skill Sets: Accountants, Financial Analysts, Controllers, Chief Financial Officer (CFO), and more.`,
+
+        retained: `Its a partnership. We work hand-in-hand with our clients from the outset of the recruitment process... Customized and the cheapest option around.`,
+
+        contract: `If you prefer a contingency approach. Have a once off Requirement or want to "Try before you buy", this is a good way to consider. It’s the old school approach.`
+      };
+
+      document.getElementById('tab-content').innerHTML = `<p>${content[tab]}</p><a class="btn" href="#">Request Proposal</a>`;
+    }
+  </script>
 </body>
 </html>
