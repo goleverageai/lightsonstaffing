@@ -2,222 +2,725 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lights on Staffing</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights on Staffing - Connecting Talent with Opportunity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --color-green-primary: #28a745;
+            /* A more muted, sophisticated green */
+            --color-green-dark: #1e7e34;
+            --color-orange-accent: #ff8c00;
+            /* A warm, slightly muted orange for highlights */
+            --color-orange-dark: #cc7000;
+            --color-white: #ffffff;
+            --color-off-white: #f8f9fa;
+            /* A subtle off-white for backgrounds */
+            --color-light-black: #343a40;
+            /* Lighter version of black for text */
+            --color-gray-text: #6c757d;
+            --color-dark-gray: #343a40;
+        }
 
-    header {
-      position: sticky;
-      top: 0;
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #ccc;
-      z-index: 1000;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header img {
-      height: 50px;
-    }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--color-gray-text);
+        }
 
-    nav a {
-      margin: 0 0.75rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    nav a button {
-      background-color: orange;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    nav a button:hover {
-      background-color: green;
-      color: white;
-    }
+        .logo img {
+            height: 50px;
+            /* Adjust as needed */
+        }
 
-    .hero {
-      background: url('assets/LightsOnStaffing_Home.jpg') no-repeat center center/cover;
-      height: 90vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
-    .hero h1 {
-      font-size: 3rem;
-      text-shadow: 2px 2px 5px black;
-    }
+        nav ul li {
+            margin-left: 25px;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      text-shadow: 1px 1px 4px black;
-    }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-light-black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    .form-inline {
-      display: flex;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
+        nav ul li a:hover {
+            color: var(--color-green-primary);
+        }
 
-    .form-inline input {
-      padding: 0.5rem;
-      border: none;
-      border-radius: 5px;
-    }
+        .contact-button,
+        .get-started-button,
+        .cta-button {
+            background-color: var(--color-orange-accent);
+            /* Orange for buttons */
+            color: var(--color-white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            /* For anchor tags styled as buttons */
+            display: inline-block;
+            /* For anchor tags styled as buttons */
+            text-align: center;
+        }
 
-    .form-inline button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      background-color: orange;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+        .contact-button:hover,
+        .get-started-button:hover,
+        .cta-button:hover {
+            background-color: var(--color-orange-dark);
+            transform: translateY(-2px);
+        }
 
-    .form-inline button:hover {
-      background-color: green;
-      color: white;
-    }
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 600px;
+            /* Adjust height as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            text-align: center;
+            overflow: hidden;
+        }
 
-    section {
-      padding: 3rem 2rem;
-    }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/LightsOnStaffing_Home.jpg') no-repeat center center/cover;
+            filter: brightness(0.6);
+            /* Darken the image slightly for text readability */
+            z-index: -1;
+        }
 
-    .two-columns {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
 
-    .left, .right {
-      flex: 1;
-      min-width: 300px;
-    }
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
 
-    .quote-symbol {
-      font-size: 2rem;
-      color: orange;
-    }
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
 
-    .tabs {
-      text-align: center;
-    }
+        .cta-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+        }
 
-    .tab button {
-      margin: 0 0.25rem;
-      padding: 0.5rem 1rem;
-      background-color: #f2f2f2;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-    }
+        .cta-form input {
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            font-size: 1em;
+            flex: 1;
+            /* Allow fields to grow */
+            min-width: 200px;
+            /* Minimum width for each field */
+        }
 
-    .tabcontent {
-      background-color: #fff3e0;
-      padding: 1rem;
-      display: none;
-      text-align: left;
-    }
+        .white-field {
+            background-color: var(--color-white);
+        }
 
-    .tabcontent.active {
-      display: block;
-    }
+        .light-black-text {
+            color: var(--color-light-black);
+        }
 
-    .tabcontent ul {
-      padding-left: 1.25rem;
-    }
+        .cta-form input::placeholder {
+            color: var(--color-gray-text);
+            /* Lighter placeholder text */
+        }
 
-    .tabcontent button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: orange;
-      border: none;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+        /* Who We Are Section */
+        .who-we-are-section {
+            padding: 80px 0;
+            background-color: var(--color-off-white);
+            /* Off-white background */
+        }
 
-    .tabcontent button:hover {
-      background-color: green;
-      color: white;
-    }
+        .who-we-are-section .container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            background-color: var(--color-white);
+            /* Inner white background */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
 
-    .testimonials h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+        .who-we-are-section .left-content {
+            flex: 2;
+        }
 
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+        .who-we-are-section .left-content h2 {
+            font-size: 2.5em;
+            color: var(--color-dark-gray);
+            margin-bottom: 20px;
+        }
 
-    .testimonial {
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      font-style: italic;
-    }
+        .who-we-are-section .left-content p {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
 
-    .testimonial .quote-symbol {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+        .who-we-are-section .right-content {
+            flex: 1;
+            text-align: center;
+        }
 
-    .success-stories {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
+        .quote-container {
+            margin-bottom: 30px;
+            position: relative;
+            background-color: var(--color-off-white);
+            padding: 20px;
+            border-radius: 8px;
+        }
 
-    .story {
-      text-align: center;
-    }
+        .quote-symbol {
+            font-size: 4em;
+            color: var(--color-green-primary);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            opacity: 0.7;
+            line-height: 1;
+        }
 
-    .story img {
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-    }
+        .italic-quote {
+            font-style: italic;
+            color: var(--color-light-black);
+            font-size: 1.1em;
+            padding-top: 20px;
+            /* Space for the quote symbol */
+        }
 
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
+        .founder-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .founder-headshot {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--color-green-primary);
+            margin-bottom: 10px;
+        }
+
+        .founder-name {
+            font-weight: 700;
+            color: var(--color-dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .founder-title {
+            color: var(--color-gray-text);
+            font-size: 0.9em;
+        }
+
+        /* Services / Tabs Section */
+        .services-tabs-section {
+            background-color: var(--color-green-primary);
+            /* Solid green background */
+            padding: 80px 0;
+            color: var(--color-white);
+        }
+
+        .services-tabs-section .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Slightly transparent white for the container */
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Lighter background for inactive tabs */
+            color: var(--color-white);
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 8px 8px 0 0;
+            /* Rounded top corners */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .tab-button.active {
+            background-color: var(--color-white);
+            color: var(--color-dark-gray);
+            /* Darker text for active tab */
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .tab-content-wrapper {
+            background-color: var(--color-white);
+            color: var(--color-light-black);
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            /* Rounded bottom corners */
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        .tab-pane p {
+            margin-bottom: 15px;
+        }
+
+        .tab-pane .cta-button {
+            margin-top: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: var(--color-off-white);
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 3em;
+            color: var(--color-dark-gray);
+            margin-bottom: 50px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card .quote {
+            font-style: italic;
+            color: var(--color-gray-text);
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        /* Success Stories Section */
+        .success-stories-section {
+            padding: 80px 0;
+            background-color: var(--color-white);
+        }
+
+        .success-stories-section h2 {
+            text-align: center;
+            font-size: 3em;
+            color: var(--color-dark-gray);
+            margin-bottom: 50px;
+        }
+
+        .story-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .thumbnail-item {
+            text-align: center;
+            background-color: var(--color-off-white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-item h3 {
+            font-size: 1.3em;
+            color: var(--color-dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .who-we-are-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .who-we-are-section .left-content,
+            .who-we-are-section .right-content {
+                flex: none;
+                width: 100%;
+            }
+
+            .quote-symbol {
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-content p {
+                font-size: 1em;
+            }
+
+            .cta-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-form input,
+            .cta-form button {
+                width: 80%;
+                min-width: unset;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 90%;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }
+
+            .tab-button.active {
+                border-radius: 8px;
+                /* Maintain rounded corners on active tab when stacked */
+            }
+
+            .tab-content-wrapper {
+                border-radius: 8px;
+                /* Fully rounded container */
+            }
+
+            .testimonial-grid,
+            .story-thumbnails {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Body content remains unchanged -->
+
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Lights on Staffing Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#success-stories-section">Success Stories</a></li>
+                <li class="proposal-menu"><a href="#">Proposal</a></li>
+                <li><button class="contact-button">Contact</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Find Your Dream Job Today</h1>
+            <p>Connecting talent with opportunity in a competitive job market.</p>
+            <form class="cta-form">
+                <input type="text" placeholder="Full Name" class="white-field light-black-text">
+                <input type="email" placeholder="Email" class="white-field light-black-text">
+                <input type="tel" placeholder="Phone" class="white-field light-black-text">
+                <button type="submit" class="get-started-button">Get Started</button>
+            </form>
+        </div>
+        <div class="hero-image">
+            </div>
+    </section>
+
+    <section class="who-we-are-section" id="about">
+        <div class="container white-background">
+            <div class="left-content">
+                <h2>Who we are</h2>
+                <p>Lights on Staffing is led by Steven Glynn, hailing from Ireland originally, I came to the US with a
+                    Dream & a Greencard! Career #1 was Environmental Engineering and after 4 years of that I took a leap
+                    of faith and asked my recruiter if I could work for their company. I was in Corporate recruiting for
+                    16 years before venturing out on my own in 2019. Still going strong. The secret sauce? There is a
+                    secret sauce - lets chat and allow me to share.</p>
+                <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams"
+                    class="cta-button let-s-chat-button">Let's Chat</a>
+            </div>
+            <div class="right-content">
+                <div class="quote-container">
+                    <span class="quote-symbol">&ldquo;</span>
+                    <p class="italic-quote">After 16 years in the recruitment world - post career #1 as an
+                        Environmental Engineer - I launched Lights on Staffing in 2019, a recruiting firm built for the
+                        AEC industry, by someone who’s been in it.</p>
+                </div>
+                <div class="founder-info">
+                    <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn Headshot" class="founder-headshot">
+                    <p class="founder-name">Steven Glynn</p>
+                    <p class="founder-title">Founder & Recruiting Consultant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-tabs-section solid-color-background" id="services">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="talent-landscape">Our Talent Landscape</button>
+                <button class="tab-button" data-tab="retained-service">Retained Service</button>
+                <button class="tab-button" data-tab="contract-recruiting">Contract Recruiting</button>
+            </div>
+            <div class="tab-content-wrapper">
+                <div id="talent-landscape" class="tab-pane active">
+                    <p><strong>Architecture Skill Sets:</strong> Architects, Project Managers, Drafters/Designers,
+                        Interior Designers, BIM, and more</p>
+                    <p><strong>Construction Skill Sets:</strong> Project Managers, Project Engineers, Construction
+                        Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety
+                        Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more</p>
+                    <p><strong>Environmental Skill Sets:</strong> CEQA/NEPA, Environmental Planners, Environmental
+                        Biologists, Archaeologists, Environmental Technicians, and more.</p>
+                    <p><strong>Accounting & Finance Skill Sets:</strong> Accountants, Financial Analysts, Controllers,
+                        Chief Financial Officer (CFO), and more.</p>
+                    <button class="cta-button request-proposal-button">Request Proposal</button>
+                </div>
+                <div id="retained-service" class="tab-pane">
+                    <p>It's a partnership. We work hand-in-hand with our clients from the outset of the recruitment
+                        process, beginning with an in-depth analysis of your organization's unique needs, company
+                        culture, and business goals. Need 8 to 40 hours of support - try this. Customized and the
+                        cheapest option around. Not ready to commit to a full time recruiter try this.</p>
+                    <button class="cta-button request-proposal-button">Request Proposal</button>
+                </div>
+                <div id="contract-recruiting" class="tab-pane">
+                    <p>If you prefer a contingency approach. Have a once off Requirement or want to "Try before you
+                        buy", this is a good way to consider. It's the old school approach - you only pay when we find
+                        the candidate.</p>
+                    <button class="cta-button request-proposal-button">Request Proposal</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="quote">“Steven has a knack for understanding our company's personnel needs
+                        and firm culture, which are critical to finding the right people to join us. The quality of
+                        candidates has been high and Steven has been a great connector for our organization. We
+                        appreciate his reach and ability to connect us with great candidates!
+                    </p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">“Steven is an excellent recruiting professional and has a terrific "can do/will do"
+                        client centered
+                        approach. He has found and delivered several highly skilled professionals which have helped
+                        our organization improve our talent bench. He is organized, a very proactive communicator, and
+                        responsive to our leadership's weekly changes in priority needs and hiring. I find his fees more
+                        reasonable than most typical head-hunter salary-percentage models. I highly recommend
+                        Steven to any A/E Firm!”
+                    </p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">“Steven helped me get the initial SDR team off the ground in Workvivo. He is hands
+                        down the
+                        most proactive recruiter that I have worked with. He understood what I needed, provided me
+                        with an excess of qualified candidates, sought feedback and just 'got it', going above and
+                        beyond at every stage. I would work with him again in a heartbeat.”
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-stories-section" id="success-stories-section">
+        <div class="container">
+            <h2>Success Stories</h2>
+            <div class="story-thumbnails">
+                <div class="thumbnail-item">
+                    <img src="assets/placeholder-thumbnail1.jpg" alt="Success Story 1">
+                    <h3>[Title 1]</h3>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="assets/placeholder-thumbnail2.jpg" alt="Success Story 2">
+                    <h3>[Title 2]</h3>
+                </div>
+                <div class="thumbnail-item">
+                    <img src="assets/placeholder-thumbnail3.jpg" alt="Success Story 3">
+                    <h3>[Title 3]</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lights on Staffing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for tab functionality and smooth scrolling for navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Deactivate current active tab and pane
+                    document.querySelector('.tab-button.active')?.classList.remove('active');
+                    document.querySelector('.tab-pane.active')?.classList.remove('active');
+
+                    // Activate clicked tab
+                    button.classList.add('active');
+
+                    // Activate corresponding pane
+                    const targetId = button.dataset.tab;
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // Smooth scroll for menu links (optional)
+            document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Ensure the target element exists before scrolling
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Placeholder for Contact button functionality (e.g., open a modal or scroll to contact form)
+            document.querySelector('.contact-button').addEventListener('click', () => {
+                // Example: Scroll to a contact form if it exists, or open a modal
+                console.log('Contact button clicked!');
+                // For now, let's just alert
+                alert('Contact us functionality would go here! You can link to a contact form or section.');
+            });
+        });
+    </script>
+
 </body>
 
 </html>
