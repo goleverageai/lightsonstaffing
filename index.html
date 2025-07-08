@@ -2,196 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lights on Staffing</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0;
       line-height: 1.6;
-      color: #333;
     }
+
     header {
       position: sticky;
       top: 0;
-      background: white;
+      background-color: #fff;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       z-index: 1000;
     }
+
     header img {
-      height: 40px;
+      height: 50px;
     }
+
     nav a {
-      margin-left: 1rem;
+      margin-left: 20px;
       text-decoration: none;
       color: #333;
+      font-weight: bold;
     }
-    nav a.button {
-      background: #ff9933;
-      padding: 0.5rem 1rem;
+
+    nav .cta {
+      background-color: #28a745;
+      padding: 8px 16px;
       border-radius: 4px;
       color: white;
-      transition: background 0.3s ease;
     }
-    nav a.button:hover {
-      background: #cc7a29;
-    }
+
     .hero {
-      background: url('assets/LightsOnStaffing_Home.jpg') no-repeat center center/cover;
+      background-image: url("assets/LightsOnStaffing_Home.jpg");
+      background-size: cover;
+      background-position: center;
       color: white;
+      padding: 100px 20px;
       text-align: center;
-      padding: 4rem 2rem;
       position: relative;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+
+    .hero h1, .hero p {
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
+
     .hero form {
       display: flex;
       flex-direction: column;
-      align-items: center;
       max-width: 300px;
-      margin: 0 auto;
+      margin: 20px auto 0;
+      gap: 10px;
     }
+
     .hero input {
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      width: 100%;
+      padding: 10px;
       border: none;
       border-radius: 4px;
     }
+
     .hero button {
-      background: #ff9933;
-      color: white;
-      padding: 0.5rem 1rem;
+      padding: 10px;
+      background-color: #28a745;
       border: none;
+      color: white;
+      font-weight: bold;
       border-radius: 4px;
       cursor: pointer;
     }
-    .section {
-      padding: 4rem 2rem;
-    }
+
     .about {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      padding: 50px 10%;
+      background-color: #fff;
     }
-    .about-left {
+
+    .about .text {
       flex: 1;
+      padding-right: 40px;
     }
-    .about-right {
+
+    .about .quote {
       flex: 1;
-      text-align: center;
+      text-align: left;
     }
-    .about-right img {
+
+    .about .quote-symbol {
+      font-size: 3rem;
+      color: #f7941d;
+    }
+
+    .about img {
       border-radius: 50%;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-top: 10px;
     }
-    .about-right blockquote {
-      font-style: italic;
-    }
+
     .tabs {
+      padding: 50px 10%;
+      background-color: #f8f8f8;
       text-align: center;
     }
+
     .tab-buttons button {
-      margin: 0 0.5rem;
-      padding: 0.5rem 1rem;
+      padding: 10px 20px;
+      margin: 0 5px;
       cursor: pointer;
+      border: none;
+      background-color: #ccc;
     }
-    .tab-content {
-      margin-top: 1rem;
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    .tab-content.active {
-      background: #ff9933;
+
+    .tab-buttons .active {
+      background-color: #f7941d;
       color: white;
     }
-    .tab-content ul {
+
+    .tab-content {
+      margin-top: 20px;
+      background-color: #f7941d;
+      color: white;
+      padding: 20px;
       text-align: left;
-      margin: 1rem auto;
-      max-width: 600px;
+      border-radius: 8px;
     }
-    .tab-content ul li {
-      margin-bottom: 0.5rem;
+
+    .tab-content ul {
+      padding-left: 20px;
     }
-    .tab-content .cta {
-      margin-top: 1rem;
-    }
-    .tab-content .cta button {
-      background: white;
-      color: #ff9933;
+
+    .tab-content button {
+      margin-top: 10px;
+      background-color: #fff;
+      color: #f7941d;
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+      padding: 10px;
+      font-weight: bold;
       cursor: pointer;
+      border-radius: 4px;
     }
+
     .testimonials {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 20px;
+      padding: 50px 10%;
+      background-color: #f0f0f0;
     }
+
     .testimonial {
       flex: 1;
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    .testimonial blockquote {
-      font-style: italic;
-      position: relative;
-      padding-left: 2rem;
-    }
-    .testimonial blockquote:before {
-      content: '“';
-      font-size: 2rem;
-      position: absolute;
-      left: 0;
-      top: -10px;
-      color: #ccc;
-    }
-    .success {
-      display: flex;
-      gap: 1rem;
       text-align: center;
+      font-style: italic;
     }
-    .success div {
-      flex: 1;
+
+    .testimonial::before {
+      content: "❝";
+      font-size: 2rem;
+      color: #f7941d;
     }
-    .success img {
+
+    .success-stories {
+      display: flex;
+      justify-content: space-around;
+      padding: 50px 10%;
+    }
+
+    .story {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .story img {
       width: 100%;
-      max-width: 200px;
-      margin: 0 auto;
+      border-radius: 10px;
     }
+
     footer {
-      background: #333;
+      background-color: #222;
       color: white;
       text-align: center;
-      padding: 2rem;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .about, .testimonials, .success-stories {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="assets/logo.png" alt="Logo" />
+    <img src="assets/logo.png" alt="Logo">
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#stories">Success Stories</a>
-      <a href="#contact" class="button">Contact</a>
-      <a href="#proposal">Proposal</a>
+      <a href="#success">Success Stories</a>
+      <a href="#contact" class="cta">Contact</a>
     </nav>
   </header>
 
@@ -199,67 +219,87 @@
     <h1>Find Your Dream Job Today</h1>
     <p>Connecting talent with opportunity in a competitive job market.</p>
     <form>
-      <input type="text" placeholder="Full Name" />
-      <input type="email" placeholder="Email" />
-      <input type="tel" placeholder="Phone" />
-      <button>Get Started</button>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone" required>
+      <button type="submit">Get Started</button>
     </form>
   </section>
 
-  <section class="section about" id="about">
-    <div class="about-left">
-      <h2>Who We Are</h2>
+  <section class="about" id="about">
+    <div class="text">
+      <h2>Who we are</h2>
       <p>Lights on Staffing is led by Steven Glynn, hailing from Ireland originally, I came to the US with a Dream & a Greencard! Career #1 was Environmental Engineering and after 4 years of that I took a leap of faith and asked my recruiter if I could work for their company. I was in Corporate recruiting for 16 years before venturing out on my own in 2019. Still going strong. The secret sauce? There is a secret sauce - lets chat and allow me to share.</p>
-      <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams" class="button">Let's Chat</a>
+      <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams">
+        <button>Let's Chat</button>
+      </a>
     </div>
-    <div class="about-right">
-      <blockquote>After 16 years in the recruitment world - post career #1 as an Environmental Engineer - I launched Lights on Staffing in 2019, a recruiting firm built for the AEC industry, by someone who’s been in it.</blockquote>
-      <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn" />
-      <p><strong>Steven Glynn</strong><br/>Founder & Recruiting Consultant</p>
+    <div class="quote">
+      <div class="quote-symbol">❝</div>
+      <p><em>"After 16 years in the recruitment world - post career #1 as an Environmental Engineer - I launched Lights on Staffing in 2019, a recruiting firm built for the AEC industry, by someone who’s been in it."</em></p>
+      <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn">
+      <p><strong>Steven Glynn</strong></p>
+      <p>Founder & Recruiting Consultant</p>
     </div>
   </section>
 
-  <section class="section tabs" id="services">
+  <section class="tabs" id="services">
     <div class="tab-buttons">
-      <button onclick="showTab(0)">Our Talent Landscape</button>
+      <button class="active" onclick="showTab(0)">Our Talent Landscape</button>
       <button onclick="showTab(1)">Retained Service</button>
       <button onclick="showTab(2)">Contract Recruiting</button>
     </div>
-    <div class="tab-content active">
+    <div class="tab-content" id="tab-0">
       <ul>
         <li>Architecture Skill Sets: Architects, Project Managers, Drafters/Designers, Interior Designers, BIM, and more</li>
         <li>Construction Skill Sets: Project Managers, Project Engineers, Construction Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more</li>
         <li>Environmental Skill Sets: CEQA/NEPA, Environmental Planners, Environmental Biologists, Archaeologists, Environmental Technicians, and more</li>
         <li>Accounting & Finance Skill Sets: Accountants, Financial Analysts, Controllers, Chief Financial Officer (CFO), and more</li>
       </ul>
-      <div class="cta"><a href="#contact"><button>Request Proposal</button></a></div>
+      <a href="#contact"><button>Request Proposal</button></a>
+    </div>
+    <div class="tab-content" id="tab-1" style="display:none;">
+      <ul>
+        <li>It’s a partnership. We work hand-in-hand with our clients from the outset of the recruitment process.</li>
+        <li>Customized and the cheapest option around — need 8 to 40 hours of support? Try this.</li>
+        <li>Not ready to commit to a full-time recruiter? This is the way to go.</li>
+      </ul>
+      <a href="#contact"><button>Request Proposal</button></a>
+    </div>
+    <div class="tab-content" id="tab-2" style="display:none;">
+      <ul>
+        <li>If you prefer a contingency approach, this is a great way to test.</li>
+        <li>Have a once-off requirement or want to "try before you buy"? Consider this.</li>
+        <li>You only pay when we find the candidate.</li>
+      </ul>
+      <a href="#contact"><button>Request Proposal</button></a>
     </div>
   </section>
 
-  <section class="section testimonials">
+  <section class="testimonials">
     <div class="testimonial">
-      <blockquote>Steven has a knack for understanding our company's personnel needs and firm culture, which are critical to finding the right people to join us. The quality of candidates has been high and Steven has been a great connector for our organization. We appreciate his reach and ability to connect us with great candidates!</blockquote>
+      <p>Steven has a knack for understanding our company's personnel needs and firm culture, which are critical to finding the right people to join us. The quality of candidates has been high and Steven has been a great connector for our organization.</p>
     </div>
     <div class="testimonial">
-      <blockquote>Steven is an excellent recruiting professional and has a terrific "can do/will do" client centered approach. He has found and delivered several highly skilled professionals which have helped our organization improve our talent bench. He is organized, a very proactive communicator, and responsive to our leadership's weekly changes in priority needs and hiring. I find his fees more reasonable than most typical head-hunter salary-percentage models. I highly recommend Steven to any A/E Firm!</blockquote>
+      <p>Steven is an excellent recruiting professional and has a terrific "can do/will do" client-centered approach. He has found and delivered several highly skilled professionals which have helped our organization improve our talent bench.</p>
     </div>
     <div class="testimonial">
-      <blockquote>Steven helped me get the initial SDR team off the ground in Workvivo. He is hands down the most proactive recruiter that I have worked with. He understood what I needed, provided me with an excess of qualified candidates, sought feedback and just 'got it', going above and beyond at every stage. I would work with him again in a heartbeat.</blockquote>
+      <p>Steven helped me get the initial SDR team off the ground in Workvivo. He is hands down the most proactive recruiter that I have worked with. I would work with him again in a heartbeat.</p>
     </div>
   </section>
 
-  <section class="section success" id="stories">
-    <div>
-      <img src="assets/success1.jpg" alt="Success Story 1" />
-      <p>Title 1</p>
+  <section class="success-stories" id="success">
+    <div class="story">
+      <img src="assets/thumb1.jpg" alt="Success Story 1">
+      <h4>Title One</h4>
     </div>
-    <div>
-      <img src="assets/success2.jpg" alt="Success Story 2" />
-      <p>Title 2</p>
+    <div class="story">
+      <img src="assets/thumb2.jpg" alt="Success Story 2">
+      <h4>Title Two</h4>
     </div>
-    <div>
-      <img src="assets/success3.jpg" alt="Success Story 3" />
-      <p>Title 3</p>
+    <div class="story">
+      <img src="assets/thumb3.jpg" alt="Success Story 3">
+      <h4>Title Three</h4>
     </div>
   </section>
 
@@ -268,11 +308,12 @@
   </footer>
 
   <script>
-    const tabs = document.querySelectorAll('.tab-content');
     function showTab(index) {
+      const tabs = document.querySelectorAll(".tab-content");
+      const buttons = document.querySelectorAll(".tab-buttons button");
       tabs.forEach((tab, i) => {
-        tab.classList.remove('active');
-        if (i === index) tab.classList.add('active');
+        tab.style.display = i === index ? "block" : "none";
+        buttons[i].classList.toggle("active", i === index);
       });
     }
   </script>
