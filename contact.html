@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Lights on Staffing</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/LightsOnStaffing_Logo.webp" alt="Lights on Staffing logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="success.html">Success Stories</a>
+      <a href="contact.html" class="cta">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+    <form action="mailto:stevenglynn@lightsonstaffing.com" method="POST" enctype="text/plain">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="subject">Subject</label>
+      <select id="subject" name="subject" required>
+        <option value="">-- Select --</option>
+        <option value="Looking for a job">Looking for a job</option>
+        <option value="Looking for an ideal candidate">Looking for an ideal candidate</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="profile">
+      <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn" class="headshot">
+      <div class="profile-info">
+        <div class="name-row">
+          <p><strong>Steven Glynn</strong></p>
+          <a href="https://www.linkedin.com/in/stevenglynn/" target="_blank">
+            <img src="assets/LI-In-Bug.png" alt="LinkedIn" class="linkedin">
+          </a>
+        </div>
+        <p>Founder & Recruiting Consultant</p>
+        <p>📞 619-861-1449</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Lights on Staffing. All rights reserved.</p>
+  </footer>
+</body>
+</html>
