@@ -2,45 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lights on Staffing</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lights On Staffing</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="assets/LightsOnStaffing_Logo.webp" alt="Lights on Staffing logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="success.html">Success Stories</a>
-      <a href="contact.html" class="cta">Contact</a>
-    </nav>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="assets/LightsOnStaffing_Logo.webp" alt="Lights On Staffing Logo" class="logo" />
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="success.html">Success Stories</a></li>
+          <li><a href="proposal.html" class="btn proposal">Proposal</a></li>
+          <li><a href="contact.html" class="btn contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <div class="hero">
-    <h1>Recruiting That Lights the Way</h1>
-    <p>Helping businesses find the perfect candidate—and helping candidates find the right fit.</p>
-  </div>
+  <!-- HERO SECTION -->
+  <section class="hero" style="background-image: url('assets/LightsOnStaffing_Home.jpg');">
+    <div class="hero-content">
+      <h1>Find Your Dream Job Today</h1>
+      <p>Connecting talent with opportunity in a competitive job market.</p>
+      <form class="cta-form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="tel" placeholder="Phone" required />
+        <button type="submit" class="btn submit">Get Started</button>
+      </form>
+    </div>
+  </section>
 
-  <main>
-    <section>
-      <h2>Welcome to Lights on Staffing</h2>
-      <p>We connect top talent with exceptional companies. Whether you're looking to hire or ready for your next opportunity, we’re here to help.</p>
-    </section>
+  <!-- WHO WE ARE SECTION -->
+  <section class="who-we-are">
+    <div class="container split">
+      <div class="text-block">
+        <h2>Who we are</h2>
+        <p>Lights on Staffing is led by Steven Glynn, hailing from Ireland originally. I came to the US with a Dream & a Greencard! Career #1 was Environmental Engineering and after 4 years of that I took a leap of faith and asked my recruiter if I could work for their company. I was in Corporate recruiting for 16 years before venturing out on my own in 2019. Still going strong. The secret sauce? There is a secret sauce – let's chat and allow me to share.</p>
+        <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams" class="btn">Let's Chat</a>
+      </div>
+      <div class="founder-block">
+        <blockquote>
+          <span class="quote-icon">❝</span>
+          <em>After 16 years in the recruitment world – post career #1 as an Environmental Engineer – I launched Lights on Staffing in 2019, a recruiting firm built for the AEC industry, by someone who’s been in it.</em>
+        </blockquote>
+        <div class="founder-info">
+          <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn" class="founder-photo" />
+          <div>
+            <strong>Steven Glynn</strong><br />
+            Founder & Recruiting Consultant
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Why Choose Us</h2>
-      <ul>
-        <li>✅ Specialized industry knowledge</li>
-        <li>✅ Personalized recruiting process</li>
-        <li>✅ Transparent communication</li>
-      </ul>
-    </section>
-  </main>
+  <!-- TABS SECTION -->
+  <section class="tabs-section">
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab1">Our Talent Landscape</button>
+        <button class="tab-link" data-tab="tab2">Retained Service</button>
+        <button class="tab-link" data-tab="tab3">Contract Recruiting</button>
+      </div>
+      <div class="tab-content active" id="tab1">
+        <p>
+          <strong>Architecture:</strong> Architects, Project Managers, Drafters/Designers, Interior Designers, BIM, and more<br />
+          <strong>Construction:</strong> Project Managers, Project Engineers, Construction Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more<br />
+          <strong>Environmental:</strong> CEQA/NEPA, Environmental Planners, Environmental Biologists, Archaeologists, Environmental Technicians, and more<br />
+          <strong>Accounting & Finance:</strong> Accountants, Financial Analysts, Controllers, CFOs, and more
+        </p>
+        <a href="#" class="btn">Request Proposal</a>
+      </div>
+      <div class="tab-content" id="tab2">
+        <p>
+          It's a partnership. We work hand-in-hand with our clients from the outset of the recruitment process, beginning with an in-depth analysis of your organization's unique needs, company culture, and business goals. Need 8 to 40 hours of support – try this. Customized and the most cost-effective option around.
+        </p>
+        <a href="#" class="btn">Request Proposal</a>
+      </div>
+      <div class="tab-content" id="tab3">
+        <p>
+          If you prefer a contingency approach, or want to “try before you buy,” this is a good way to go. You only pay when we deliver the right candidate.
+        </p>
+        <a href="#" class="btn">Request Proposal</a>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Lights on Staffing. All rights reserved.</p>
-  </footer>
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Testimonials</h2>
+      <div class="testimonials-grid">
+        <blockquote>“Steven has a knack for understanding our company's personnel needs and firm culture, which are critical to finding the right people to join us...”</blockquote>
+        <blockquote>“Steven is an excellent recruiting professional... I highly recommend Steven to any A/E Firm!”</blockquote>
+        <blockquote>“Steven helped me get the initial SDR team off the ground in Workvivo... I would work with him again in a heartbeat.”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section class="success-stories">
+    <div class="container">
+      <h2>Success Stories</h2>
+      <div class="success-thumbnails">
+        <div class="thumb">Story 1</div>
+        <div class="thumb">Story 2</div>
+        <div class="thumb">Story 3</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab-link').forEach(tab => {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
