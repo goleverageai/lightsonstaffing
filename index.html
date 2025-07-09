@@ -155,6 +155,48 @@
       margin-top: 10px;
     }
 
+    .tabs {
+      padding: 50px 10%;
+      background-color: #f9f9f9;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      background: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tab-buttons button.active {
+      background: var(--ireland-green);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content p {
+      margin-bottom: 20px;
+    }
+
     .testimonials {
       padding: 50px 10%;
       background-color: #f0f0f0;
@@ -198,33 +240,6 @@
       margin: 0;
     }
 
-    .tabs, .success-stories {
-      padding: 50px 10%;
-      background-color: #f8f8f8;
-    }
-
-    .success-stories {
-      display: flex;
-      justify-content: space-around;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .story {
-      text-align: center;
-      max-width: 250px;
-      flex: 1;
-      min-width: 220px;
-    }
-
-    .story img {
-      width: 100%;
-      border-radius: 10px;
-      max-width: 250px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
     footer {
       background-color: #222;
       color: white;
@@ -232,96 +247,46 @@
       padding: 20px;
       margin-top: 40px;
     }
-
-    @media (max-width: 768px) {
-      .about, .testimonials-container, .success-stories {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero form {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .hero input {
-        width: 100%;
-      }
-    }
   </style>
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-buttons button');
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        buttons[i].classList.toggle('active', i === index);
+      });
+    }
+    window.addEventListener('DOMContentLoaded', () => showTab(0));
+  </script>
 </head>
 <body>
+  <!-- ... hero, about etc. -->
 
-  <header>
-    <img src="assets/LightsOnStaffing_Logo.webp" alt="Logo" />
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#success">Success Stories</a>
-      <a href="#contact" class="cta">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Find Your Dream Job Today</h1>
-    <p>Connecting talent with opportunity in a competitive job market.</p>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="tel" placeholder="Phone" required />
-      <button type="submit">Get Started</button>
-    </form>
-  </section>
-
-  <section class="about" id="about">
-    <div class="text">
-      <h2>Who we are</h2>
-      <p>Lights on Staffing is led by Steven Glynn, hailing from Ireland originally, I came to the US with a Dream & a Greencard! Career #1 was Environmental Engineering and after 4 years of that I took a leap of faith and asked my recruiter if I could work for their company. I was in Corporate recruiting for 16 years before venturing out on my own in 2019. Still going strong. The secret sauce? There is a secret sauce - lets chat and allow me to share.</p>
-      <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams">
-        <button class="cta-button">Let's Chat</button>
-      </a>
+  <section class="tabs" id="services">
+    <h2>Our Talent Landscape</h2>
+    <div class="tab-buttons">
+      <button onclick="showTab(0)">Our Talent Landscape</button>
+      <button onclick="showTab(1)">Retained Service</button>
+      <button onclick="showTab(2)">Contract Recruiting</button>
     </div>
-    <div class="quote">
-      <div class="quote-symbol">❝</div>
-      <p><em>"After 16 years in the recruitment world - post career #1 as an Environmental Engineer - I launched Lights on Staffing in 2019, a recruiting firm built for the AEC industry, by someone who’s been in it."</em></p>
-      <img src="assets/Steven_Glynns.jpeg" alt="Steven Glynn" />
-      <p><strong>Steven Glynn</strong></p>
-      <p>Founder & Recruiting Consultant</p>
+    <div class="tab-content">
+      <p><strong>Architecture Skill Sets:</strong> Architects, Project Managers, Drafters/Designers, Interior Designers, BIM, and more</p>
+      <p><strong>Construction Skill Sets:</strong> Project Managers, Project Engineers, Construction Managers, Owners Rep, Mechanical Engineers, Drafters & Designers, Superintendents, Safety Managers, BIM, Mine/Bulk Material Handling, Structural Engineers, and more</p>
+      <p><strong>Environmental Skill Sets:</strong> CEQA/NEPA, Environmental Planners, Environmental Biologists, Archaeologists, Environmental Technicians, and more</p>
+      <p><strong>Accounting & Finance Skill Sets:</strong> Accountants, Financial Analysts, Controllers, Chief Financial Officer (CFO), and more</p>
+      <button class="cta-button">Request Proposal</button>
+    </div>
+    <div class="tab-content">
+      <p>It’s a partnership. We work hand-in-hand with our clients from the outset of the recruitment process, beginning with an in-depth analysis of your organization's unique needs, company culture, and business goals. Need 8 to 40 hours of support - try this. Customized and the cheapest option around. Not ready to commit to a full time recruiter? Try this.</p>
+      <button class="cta-button">Request Proposal</button>
+    </div>
+    <div class="tab-content">
+      <p>If you prefer a contingency approach. Have a once off Requirement or want to "Try before you buy", this is a good way to consider. It's the old school approach - you only pay when we find the candidate.</p>
+      <button class="cta-button">Request Proposal</button>
     </div>
   </section>
 
-  <section class="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials-container">
-      <div class="testimonial">
-        <p>Steven has a knack for understanding our company's personnel needs and firm culture, which are critical to finding the right people to join us. The quality of candidates has been high and Steven has been a great connector for our organization.</p>
-      </div>
-      <div class="testimonial">
-        <p>Steven is an excellent recruiting professional and has a terrific "can do/will do" client-centered approach. He has found and delivered several highly skilled professionals which have helped our organization improve our talent bench.</p>
-      </div>
-      <div class="testimonial">
-        <p>Steven helped me get the initial SDR team off the ground in Workvivo. He is hands down the most proactive recruiter that I have worked with. I would work with him again in a heartbeat.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="success-stories" id="success">
-    <div class="story">
-      <img src="assets/thumb1.jpg" alt="Success Story 1" />
-      <h4>Title One</h4>
-    </div>
-    <div class="story">
-      <img src="assets/thumb2.jpg" alt="Success Story 2" />
-      <h4>Title Two</h4>
-    </div>
-    <div class="story">
-      <img src="assets/thumb3.jpg" alt="Success Story 3" />
-      <h4>Title Three</h4>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Lights on Staffing. All rights reserved.</p>
-  </footer>
+  <!-- testimonials and footer follow -->
 </body>
 </html>
