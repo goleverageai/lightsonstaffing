@@ -1,0 +1,149 @@
+/* css/style.css */
+
+:root {
+  --green: #009a44;
+  --orange: #ff7900;
+  --gray-light: #f8f8f8;
+  --text-dark: #333;
+  --font: 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: white;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header img {
+  height: 50px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+nav .cta {
+  background-color: var(--green);
+  padding: 8px 16px;
+  color: white;
+  border-radius: 4px;
+}
+
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: var(--gray-light);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Contact page form & profile */
+form {
+  background: var(--gray-light);
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px 28px;
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile img.headshot {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name-row img.linkedin {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .name-row {
+    justify-content: center;
+  }
+}
