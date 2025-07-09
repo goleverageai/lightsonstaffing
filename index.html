@@ -1,113 +1,144 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lights on Staffing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
+      padding: 0;
+    }
+    body {
       line-height: 1.6;
+      color: #333;
     }
-    header, footer {
-      background-color: #222;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+    header {
+      background: #fff;
+      padding: 1em 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    nav a {
-      margin: 0 10px;
-      color: #fff;
+    header a {
       text-decoration: none;
+      margin-left: 20px;
+      color: #333;
+      font-weight: 600;
     }
-    nav a:hover {
-      text-decoration: underline;
+    header a:hover {
+      color: #f60;
     }
     .hero {
       background: url('your-cover-photo.jpg') no-repeat center center/cover;
-      padding: 100px 20px;
       color: white;
       text-align: center;
-      position: relative;
+      padding: 120px 10% 60px;
     }
     .hero h1 {
-      font-size: 48px;
-      text-shadow: 2px 2px 8px black;
+      font-size: 3em;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
-    .hero p {
-      font-size: 18px;
-      margin: 20px 0;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #ff8c00;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-    }
-    button:hover {
-      background-color: green;
-      color: white;
-    }
-    section {
-      padding: 60px 10%;
-    }
-    .zigzag {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-    .zigzag > div {
-      flex: 1 1 45%;
-      background: #f7f7f7;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .tabs {
-      margin: auto;
-      max-width: 800px;
-    }
-    .tab-buttons {
+    .hero form {
       display: flex;
       justify-content: center;
+      margin-top: 30px;
     }
-    .tab-buttons button {
-      margin: 0 10px;
-      background: lightgray;
+    .hero input, .hero button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 1em;
     }
-    .tab-buttons .active {
-      background: #ff8c00;
+    .hero button {
+      background: #f60;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
-    .tab-content {
-      background: #ffefdb;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
+    .hero button:hover {
+      background: green;
     }
-    .testimonials {
+    .container {
+      padding: 80px 10%;
+    }
+    .split {
       display: flex;
-      gap: 20px;
-      text-align: center;
+      gap: 50px;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    .testimonials blockquote {
+    .testimonial-columns {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .testimonial {
+      flex: 1;
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .testimonial p {
       font-style: italic;
     }
-    .footer-dark {
-      background: #333;
+    .tabs {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .tabs button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      border: none;
+      background: #ccc;
+    }
+    .tabs button.active {
+      background: #ff7f00;
+      color: white;
+    }
+    .tab-content {
+      background: #ff7f00;
       color: white;
       padding: 30px;
+      margin-top: 20px;
+      text-align: left;
+    }
+    .tab-content ul {
+      margin-left: 20px;
+    }
+    .footer {
+      background: #333;
+      color: white;
+      padding: 30px 10%;
       text-align: center;
+    }
+    button.cta {
+      background: #ff7f00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    button.cta:hover {
+      background: green;
+      color: white;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Lights on Staffing</h1>
+    <div><strong>Lights on Staffing</strong></div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -116,46 +147,77 @@
   </header>
 
   <section class="hero">
-    <h1>Committed to Excellence</h1>
-    <p>Over 20 years of experience in the recruitment industry</p>
-  </section>
-
-  <section>
-    <h2>Your Recruitment Partner</h2>
-    <p>Lights on Staffing, led by Steven Glynn, is an AEC recruiting firm that combines the best aspects of internal and external recruitment models... [full paragraph from your input here]</p>
-  </section>
-
-  <section>
-    <h2>Why Choose Lights on Staffing?</h2>
-    <div class="zigzag">
-      <div><strong>Operational Excellence:</strong> I operate as an internal recruiter, becoming an ambassador...</div>
-      <div><strong>Innovative Cost Model:</strong> My services are incentive-based...</div>
-      <div><strong>Flexibility and Scalability:</strong> You can adjust my involvement...</div>
-      <div><strong>Trust & Communication:</strong> I build trust through responsive communication...</div>
-      <div><strong>Results-Driven Approach:</strong> I constantly prioritize my time...</div>
-      <div><strong>Operational Advantage:</strong> Partnering with Lights on Staffing provides...</div>
-      <div><strong>Streamlining:</strong> My goal is to save you time by pre-screening candidates...</div>
-      <div><strong>"Skin in the Game":</strong> for my clients drives communication and urgency...</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Contact Us</h2>
-    <form action="mailto:stevenglynn@lightsonstaffing.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required><br><br>
-      <input type="email" name="email" placeholder="Your Email" required><br><br>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br><br>
-      <button type="submit">Send Message</button>
+    <h1>We Light the Way to Great Talent</h1>
+    <form>
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email" />
+      <button type="submit">Get Started</button>
     </form>
-    <div>
-      <img src="steven-headshot.jpg" alt="Steven Glynn" width="100" height="100" />
-      <p>Steven Glynn <a href="https://www.linkedin.com/in/stevenglynn/" target="_blank">🔗 LinkedIn</a></p>
-      <p>Founder & AEC Recruiter</p>
+  </section>
+
+  <section class="container split">
+    <div class="text">
+      <h2>Who we are</h2>
+      <p>Lights on Staffing is led by Steven Glynn... <a href="https://tidycal.com/stevenglynn/15-30-minute-meeting-via-teams"><button class="cta">Let's Chat</button></a></p>
+    </div>
+    <div class="quote">
+      <p>“You are only as good as the talent you attract.”</p>
+      <img src="steven.jpg" alt="Steven Glynn" width="80" />
+      <p><strong>Steven Glynn</strong><br />Founder, Lights on Staffing</p>
     </div>
   </section>
 
-  <footer class="footer-dark">
+  <section class="container tabs">
+    <button class="active" onclick="showTab(0)">Our Talent Landscape</button>
+    <button onclick="showTab(1)">Retained Service</button>
+    <button onclick="showTab(2)">Contract Recruiting</button>
+    <div class="tab-content" id="tab0">
+      <ul>
+        <li>Architecture Skill Sets: Architects, Project Managers...</li>
+        <li>Construction Skill Sets: Project Managers, Superintendents...</li>
+        <li>Environmental Skill Sets: CEQA/NEPA, Biologists, Archaeologists...</li>
+        <li>Accounting & Finance Skill Sets: Accountants, CFOs...</li>
+      </ul>
+      <button class="cta" onclick="location.href='contact.html'">Request Proposal</button>
+    </div>
+    <div class="tab-content" id="tab1" style="display:none">
+      <p>It's a partnership... need 8 to 40 hours of support...</p>
+      <button class="cta" onclick="location.href='contact.html'">Request Proposal</button>
+    </div>
+    <div class="tab-content" id="tab2" style="display:none">
+      <p>If you prefer a contingency approach... only pay when we find the candidate.</p>
+      <button class="cta" onclick="location.href='contact.html'">Request Proposal</button>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 style="text-align:center">Testimonials</h2>
+    <div class="testimonial-columns">
+      <div class="testimonial">
+        <p>“Steven made the process seamless and efficient.”</p>
+      </div>
+      <div class="testimonial">
+        <p>“We found our perfect candidate thanks to Lights on Staffing.”</p>
+      </div>
+      <div class="testimonial">
+        <p>“They truly understand our industry.”</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <p>&copy; 2025 Lights on Staffing. All rights reserved.</p>
   </footer>
+
+  <script>
+    function showTab(i) {
+      document.querySelectorAll('.tab-content').forEach((el, index) => {
+        el.style.display = index === i ? 'block' : 'none';
+      });
+      document.querySelectorAll('.tabs button').forEach((btn, index) => {
+        btn.classList.toggle('active', index === i);
+      });
+    }
+  </script>
 </body>
 </html>
