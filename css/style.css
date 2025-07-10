@@ -1,4 +1,14 @@
-/* Reset styles */
+/* Define Ireland flag colors and fonts */
+:root {
+  --ireland-green: #009A49;
+  --ireland-white: #FFFFFF;
+  --ireland-orange: #FF7900;
+  --text-dark: #333333;
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Merriweather', serif;
+}
+
+/* Reset default styles for consistency */
 * {
   margin: 0;
   padding: 0;
@@ -6,279 +16,367 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
-  color: #000;
+  font-family: var(--font-body);
+  color: var(--text-dark);
   line-height: 1.6;
+  background-color: var(--ireland-white);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Ireland Colors */
-:root {
-  --green: #009A44;
-  --orange: #FF8200;
-  --white: #ffffff;
-  --black: #1a1a1a;
-  --gray: #f2f2f2;
-}
-
-/* Layout Containers */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-/* Header */
+/* Header styles */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--white);
-  border-bottom: 1px solid #ddd;
+  padding: 1.5rem 2rem;
+  background-color: var(--ireland-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
 }
 
-.nav-links {
+header .logo img {
+  height: 50px;
+}
+
+header nav ul {
   display: flex;
+  list-style: none;
   gap: 1.5rem;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+header nav ul li a.contact-btn {
+  background-color: var(--ireland-orange);
+  color: var(--ireland-white);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+header nav ul li a.contact-btn:hover {
+  background-color: var(--ireland-green);
+}
+
+/* Footer styles */
+footer {
+  background-color: var(--ireland-orange);
+  color: var(--ireland-white);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.nav-links a {
-  font-weight: 600;
-  color: var(--black);
-}
-
-.btn-primary {
-  background-color: var(--orange);
-  color: var(--white);
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: var(--green);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer */
-footer {
-  background-color: var(--orange);
-  color: var(--white);
-  padding: 2rem;
+footer .footer-content {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.footer-column {
-  flex: 1 1 30%;
-  margin: 1rem 0;
-}
-
-.footer-column ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer-btn {
-  background-color: var(--white);
-  color: var(--black);
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.footer-btn:hover {
-  background-color: var(--green);
-  color: var(--white);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-
-/* Hero Section */
-.hero {
-  position: relative;
-  background-image: url('assets/LightsOnStaffing_Home.jpg');
-  background-size: cover;
-  background-position: center;
-  color: var(--white);
-  padding: 5rem 2rem;
+footer .footer-column {
+  flex: 1;
   text-align: center;
 }
 
-.hero h1, .hero p {
-  text-shadow: 1px 1px 4px #000;
+footer .footer-column ul {
+  list-style: none;
 }
 
-.hero-form {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+footer .footer-column ul li {
+  margin: 0.5rem 0;
 }
 
-.hero-form input {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 4px;
+footer .footer-column ul li a {
+  color: var(--ireland-white);
+  text-decoration: none;
   font-size: 1rem;
 }
 
-/* Container 2: Quote Section */
-.quote-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
+footer .footer-column .contact-btn {
+  background-color: var(--ireland-white);
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.quote-left, .quote-right {
-  flex: 1 1 45%;
+footer .footer-column .contact-btn:hover {
+  background-color: var(--ireland-green);
+  color: var(--ireland-white);
+  box-shadow: 0 0 10px var(--ireland-white);
 }
 
-.quote-mark {
-  font-size: 4rem;
-  color: var(--orange);
-  line-height: 1;
+footer .footer-column .rights {
+  font-size: 0.9rem;
 }
 
-.quote-text {
-  font-style: italic;
-  margin: 1rem 0;
+/* Homepage Container 1: Hero Section */
+.hero {
+  background: url('assets/LightsOnStaffing_Home.jpg') no-repeat center center/cover;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--ireland-white);
 }
 
-.headshot {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 0.5rem;
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1rem;
 }
 
-.author-info {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.hero p {
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1.5rem;
 }
 
-/* Tabs */
-.tabs {
+.hero form {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.tab {
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  background-color: var(--green);
-  color: var(--white);
-}
-
-.tab.active {
-  background-color: var(--orange);
-}
-
-.tab-content {
-  background-color: var(--orange);
-  color: var(--white);
-  padding: 2rem;
-  border-radius: 6px;
-  text-align: center;
-}
-
-/* Testimonials */
-.testimonials {
-  text-align: center;
-}
-
-.testimonial-cards {
-  display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+}
+
+.hero form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.hero form .get-started-btn {
+  background-color: var(--ireland-orange);
+  color: var(--ireland-white);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hero form .get-started-btn:hover {
+  background-color: var(--ireland-green);
+}
+
+/* Homepage Container 2: Quote Section */
+.quote-section {
+  display: flex;
   justify-content: center;
-  margin-top: 2rem;
-}
-
-.testimonial-card {
-  background-color: var(--gray);
   padding: 2rem;
-  border-radius: 8px;
-  flex: 1 1 300px;
-  max-width: 350px;
-  text-align: left;
-  position: relative;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.testimonial-card .quote-mark {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+.quote-section .left-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.quote-section .left-column h2 {
+  font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--orange);
+  margin-bottom: 1rem;
 }
 
-.testimonial-card p {
-  margin-top: 2.5rem;
+.quote-section .left-column p {
+  margin-bottom: 1.5rem;
+}
+
+.quote-section .left-column .chat-btn {
+  background-color: var(--ireland-orange);
+  color: var(--ireland-white);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.quote-section .left-column .chat-btn:hover {
+  background-color: var(--ireland-green);
+}
+
+.quote-section .right-column {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.quote-section .right-column .quote-icon {
+  font-size: 2rem;
+  color: var(--ireland-orange);
+  margin-bottom: 1rem;
+}
+
+.quote-section .right-column p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.quote-section .right-column img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.quote-section .right-column .name {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.quote-section .right-column .name a img {
+  height: 1.1rem;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.quote-section .right-column .title {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+/* Homepage Container 3: Tabs Section */
+.tabs-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tabs-section .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tabs-section .tabs .tab {
+  background-color: var(--ireland-green);
+  color: var(--ireland-white);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.tabs-section .tabs .tab.active {
+  background-color: var(--ireland-orange);
+}
+
+.tabs-section .tab-content {
+  background-color: var(--ireland-orange);
+  color: var(--ireland-white);
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+
+/* Homepage Container 4: Testimonials Section */
+.testimonials-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonials-section .testimonials {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.testimonials-section .testimonial-card {
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--ireland-white);
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-section .testimonial-card .quote-icon {
+  font-size: 2rem;
+  color: var(--ireland-orange);
+  margin-bottom: 1rem;
+}
+
+.testimonials-section .testimonial-card p {
   font-style: italic;
 }
 
-/* Responsive */
+/* Responsive design */
 @media (max-width: 768px) {
-  .quote-section {
-    flex-direction: column;
-  }
-
-  .tabs {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-column {
-    text-align: center;
-  }
-
   header {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .hero-form {
+  header nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero form input {
     width: 100%;
   }
+
+  .tabs-section .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
 }
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .quote-section .left-column h2 {
+    font-size: 1.5rem;
+  }
+
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Merriweather:wght@700&display=swap');
