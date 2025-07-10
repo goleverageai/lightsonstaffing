@@ -367,6 +367,7 @@ p {
 
 .tab.active {
     background-color: var(--ireland-orange);
+    
 }
 
 .tab:hover {
@@ -379,6 +380,11 @@ p {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 5px 20px var(--shadow-light);
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
 }
 
 /* Cards Section */
