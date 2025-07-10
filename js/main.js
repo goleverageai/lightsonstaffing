@@ -14,27 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             spans.forEach(span => span.classList.toggle('active'));
         });
     }
-
-    // Tabs functionality for 'Our Expertise' section
-document.addEventListener("DOMContentLoaded", function() {
-    const tabs = document.querySelectorAll(".tabs .tab");
-    const tabContents = document.querySelectorAll(".tab-content");
-
-    tabs.forEach(tab => {
-        tab.addEventListener("click", function() {
-            // Remove 'active' class from all tabs and contents
-            tabs.forEach(t => t.classList.remove("active"));
-            tabContents.forEach(tc => tc.classList.remove("active"));
-
-            // Add 'active' to clicked tab
-            this.classList.add("active");
-
-            // Show corresponding tab content
-            const target = this.getAttribute("data-tab");
-            document.getElementById(target).classList.add("active");
-        });
-    });
-});
     
     // Tab Functionality
     const tabs = document.querySelectorAll('.tab');
@@ -161,3 +140,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".tabs .tab");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+            // Remove 'active' from all tabs and tab contents
+            tabs.forEach(t => t.classList.remove("active"));
+            tabContents.forEach(tc => tc.classList.remove("active"));
+
+            // Activate the clicked tab
+            this.classList.add("active");
+
+            // Show corresponding tab content
+            const target = this.getAttribute("data-tab");
+            document.getElementById(target).classList.add("active");
+        });
+    });
+});
